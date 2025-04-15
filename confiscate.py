@@ -4,8 +4,8 @@ import datetime
 import pymysql
 
 # 连接数据库并将值传入
-db = pymysql.connect(host='localhost', port=3306, user='root', password='123qwe+++', db='confiscate', charset='utf8')
-cursor = db.cursor()
+# db = pymysql.connect(host='localhost', port=3306, user='root', password='123qwe+++', db='confiscate', charset='utf8')
+# cursor = db.cursor()
 """
 字段分别为：   
     id              INT UNSIGNED AUTO_INCREMENT,
@@ -18,7 +18,7 @@ cursor = db.cursor()
 """
 
 
-def new_confiscate(db_date, money, is_exec):
+def new_confiscate(db_date, money, is_exec = 0):
     """
     输入断开签到的月日，和最近一天签到金额，算出续签的金额
     :param data: "2022-04-11"
@@ -139,8 +139,9 @@ def close_py():
     cursor.close()
 
 if __name__ == '__main__':
-    date, money = deal_date()
+    # date, money = deal_date()
     # 根据前面的查询执行
-    result = new_confiscate(date, money, 'N')
-    # result = new_confiscate("2023-07-14", 23.0, 'y')
+    # result = new_confiscate(date, money, 'N')
+    result = new_confiscate("2025-03-14", 32.4)
     print(result)
+    x = input("111")
